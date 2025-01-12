@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 from weather_file import get_current_weather
 from waitress import serve
 import asyncio
+import os
 from telegram import Update, Bot, ReplyKeyboardMarkup, InlineKeyboardMarkup, InlineKeyboardButton
 from telegram.ext import Application, CommandHandler, MessageHandler, CallbackQueryHandler, filters, ContextTypes
 
@@ -235,5 +236,7 @@ def main():
     application.run_polling()
 
 
-if __name__ == "__main__":
-     serve(main(), host="0.0.0.0", port=8000)
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))
+    serve(main(), host='0.0.0.0', port=port)
+
