@@ -13,3 +13,6 @@ requests==2.31.0
 urllib3==2.2.0
 waitress==2.1.2
 Werkzeug==3.0.1
+asyncio
+python-telegram-bot>=13.0
+
