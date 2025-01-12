@@ -235,8 +235,9 @@ def main():
     print("Bot is running...")
     application.run_polling()
 
-
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
-    serve(main(), host='0.0.0.0', port=port)
+    main()
+    
+if __name__ == '__main__':
+    serve(app, host="0.0.0.0", port=8000)
 
