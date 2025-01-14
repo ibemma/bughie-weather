@@ -224,7 +224,7 @@ def handle_response(text: str) -> str:
     else:
         return "Sorry, I didn't understand that. Use /help to see available commands."
 
-# MAIN FUNCTION
+@app.route("/bot")
 def main():
     application.add_handler(CommandHandler("start", start_comm))
     application.add_handler(CommandHandler("help", how_benefix_works_comm))
@@ -235,9 +235,7 @@ def main():
     print("Bot is running...")
     application.run_polling()
 
-if __name__ == '__main__':
-    main()
     
 if __name__ == '__main__':
-    serve(app, host="0.0.0.0", port=8000)
+    serve(app, main(), host="0.0.0.0", port=8000)
 
